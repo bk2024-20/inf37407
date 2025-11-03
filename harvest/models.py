@@ -27,7 +27,7 @@ class Dataset(models.Model):
     temporal_end = models.DateField(null=True, blank=True)
     last_modified = models.DateTimeField(null=True, blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
-    url = models.URLField(blank=True)                    # page dataset sur CKAN
+    url = models.URLField(max_length=1000, blank=True, default="")   # 
     created_at = models.DateTimeField(auto_now_add=True)
     class Meta:
         unique_together = ("source", "ckan_id")
@@ -38,7 +38,7 @@ class Resource(models.Model):
     ckan_id = models.CharField(max_length=200, db_index=True)
     name = models.CharField(max_length=500, blank=True)
     format = models.CharField(max_length=50, blank=True) # CSV, JSON, SHP…
-    url = models.URLField(blank=True)
+    url = models.URLField(max_length=1000, blank=True, default="")   # ↑
     last_modified = models.DateTimeField(null=True, blank=True)
     size = models.BigIntegerField(null=True, blank=True)
     class Meta:
