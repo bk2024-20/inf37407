@@ -1,15 +1,24 @@
 {% extends "base.html" %}
-{% block title %}Accueil — INF37407{% endblock %}
+{% block title %}Accueil – INF37407{% endblock %}
 {% block content %}
-  <div class="card p-4">
-    <h1 class="h3 mb-2">Bienvenue</h1>
-    <p class="text-muted">Accédez aux sections via la barre de navigation ci-dessus.</p>
-    <div class="d-flex gap-2 flex-wrap">
-      <a class="btn btn-primary" href="/stats/">Stats</a>
-      <a class="btn btn-outline-primary" href="/api/datasets/">API REST</a>
-      <a class="btn btn-outline-secondary" href="/swagger/">Swagger</a>
-      <a class="btn btn-outline-dark" href="/graphql">GraphQL</a>
-      <a class="btn btn-outline-secondary" href="/admin/">Admin</a>
+  <div class="row g-3">
+    <div class="col-md-6">
+      <div class="card p-3">
+        <h5 class="mb-2">Bienvenue</h5>
+        <p class="text-muted mb-0">Utilise la barre de navigation pour accéder aux Stats, à l’API REST, à Swagger et à GraphQL.</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3">
+        <h5 class="mb-2">Raccourcis</h5>
+        <div class="d-flex gap-2 flex-wrap">
+          <a class="btn btn-primary" href="{% url 'stats' %}">Stats</a>
+          <a class="btn btn-outline-primary" href="/api/datasets/">API REST</a>
+          <a class="btn btn-outline-secondary" href="/swagger/">Swagger</a>
+          <a class="btn btn-outline-dark" href="/graphql">GraphQL</a>
+          <a class="btn btn-outline-secondary" href="/admin/">Admin</a>
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}
